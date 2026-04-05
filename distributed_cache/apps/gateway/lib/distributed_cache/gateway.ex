@@ -19,7 +19,7 @@ defmodule DistributedCache.Gateway do
     {:reply, data, state}
   end
 
-  def handle_call({:set,key, data}, _from, state) do
+  def handle_call({:set, key, data}, _from, state) do
     {:noreply, state}
   end
 end
