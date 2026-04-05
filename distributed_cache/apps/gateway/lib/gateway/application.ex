@@ -3,6 +3,8 @@ defmodule Gateway.Application do
 
   @impl true
   def start(_type, _args) do
+    :pg.start_link()
+    
     children = [
       DistributedCache.Gateway
     ]

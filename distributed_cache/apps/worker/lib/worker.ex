@@ -13,6 +13,11 @@ defmodule Worker do
     GenServer.call(__MODULE__, {:local_set, key, data})
   end
 
+  def init(_arg) do
+    Node.connect(:gateway@localhost)
+    :pg.join(:workers, self())
+  end
+
   def handle_call({:local_get, key}, _from, state) do
     {:reply, Map.get(state), state}
   end
