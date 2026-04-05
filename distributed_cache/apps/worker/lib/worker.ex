@@ -9,7 +9,7 @@ defmodule Worker do
     GenServer.call(__MODULE__, {:local_get, key})
   end
 
-  def local_set(key) do
+  def local_set(key, data) do
     GenServer.call(__MODULE__, {:local_set, key, data})
   end
 
